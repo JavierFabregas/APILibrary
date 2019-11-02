@@ -10,7 +10,13 @@ class book_controller extends Controller
 	public function getBooks(book $books){
 
 		$books = book::all();
-	   // dd($books);
+	    //dd($books);
+
+	    
+	    foreach ($books as $key => $value) {
+	    	//print($value);
+	    	print($value);
+	    }
 
 	}
 }
