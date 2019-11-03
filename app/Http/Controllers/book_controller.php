@@ -7,16 +7,14 @@ use App\book;
 
 class book_controller extends Controller
 {
-	public function getBooks(book $books){
-
+	public function getBooks(){
 		$books = book::all();
-	    //dd($books);
-
-	    
 	    foreach ($books as $key => $value) {
-	    	//print($value);
 	    	print($value);
 	    }
+	}
+
+	public function addBook (){
 
 	}
 }
