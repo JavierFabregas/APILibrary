@@ -14,8 +14,11 @@ class book_controller extends Controller
 	    }
 	}
 
-	public function addBook (){
-
+	public function addBook (Request $request){
+		$book = new book;
+		$book->title = $request->title;
+		$book->description = $request->description;
+		$book->save();
 	}
 }
 
