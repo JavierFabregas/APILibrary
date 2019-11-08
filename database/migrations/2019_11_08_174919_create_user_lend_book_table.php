@@ -15,12 +15,11 @@ class CreateUserLendBookTable extends Migration
     {
         Schema::create('user_lend_book', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('id_user');
-            $table->Integer('id_book');
+            $table->Integer('user_id')->unsigned();
+            $table->Integer('book_id')->unsigned();
             $table->timestamps();
-
-            $table->foreing('id_user')->references('id')->on('users');
-            $table->foreing('id_book')->references('id')->on('books');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
