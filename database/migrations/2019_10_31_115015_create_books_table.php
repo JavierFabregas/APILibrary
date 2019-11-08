@@ -20,11 +20,6 @@ class CreateBooksTable extends Migration
             $table->timestamps();
         });
 
-        $book = new App\book();
-        $book->title = '50 SOMBRAS';
-        $book->description = 'puta mierda';
-        $book->save();
-
     }
 
     /**
