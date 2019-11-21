@@ -25,3 +25,8 @@ Route::get('show', 'BookController@show');
 
 Route::post('storeUser', 'UserController@storeUser');
 Route::get('showUsers', 'UserController@showUsers');
+Route::post('login', 'UserController@login');
+
+Route::get('/', function () {
+    
+})->middleware('auth');
