@@ -104,24 +104,17 @@ class UserController extends Controller
     }
     public function login(Request $request)
     {
-        $users = User::all();  
+        $data_token = ['email'=>$request->email];
         
-        foreach ($users as $key => $user) 
-        {
-            if($request->email == $user->email && $request->password == $user->password)
-            {                
-                $data_token = [
-                    "email" => $user->email,
-                ];
-
+        $user = User::where($data_token)->first();  
+        
+            if($request->password == $user->password)
+            {       
                 $token = new Token($data_token);
                 $tokenEncoded = $token->encode();
 
                 return response()->json(["token" => $tokenEncoded], 201);
-                
-                //print("usuario logeado");
-            }
-        }
+            }        
             return response()->json(["Error" => "No se ha encontrado"], 401);
         
     }

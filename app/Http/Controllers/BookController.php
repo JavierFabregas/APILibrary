@@ -96,12 +96,12 @@ class BookController extends Controller
         $books = Book::all();  
         
         // request viene con el token y con el id del libro
-        //con el id del libro comprobar que no este ya en la tabla user_lend_book
-        //si no esta
+        // con el id del libro comprobar que no este ya en la tabla user_lend_book
+        // si no esta
            // el token en el header y el id en el body
            // decodeamos el token y buscamos el id del usuario con el Email que tiene el token
            // con el id del libro y el id del usuario hacemos el store pero en la tabla user_lend_book
-        //si esta
+        // si esta
            // error ese libro ya esta prestado
         
     }

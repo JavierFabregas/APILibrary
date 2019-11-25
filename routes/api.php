@@ -17,16 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('books', 'BookController');
+//Route::apiResource('books', 'BookController');
 Route::apiResource('users', 'UserController');
 
-Route::post('store', 'BookController@store');
+//Route::post('store', 'BookController@store');
 Route::get('show', 'BookController@show');
 
 Route::post('storeUser', 'UserController@storeUser');
 Route::get('showUsers', 'UserController@showUsers');
 Route::post('login', 'UserController@login');
 
-Route::get('/', function () {
-    
-})->middleware('auth');
+Route::group(['middleware' => ['auth']], function ()
+{
+    Route::apiResource('books', 'BookController');
+    Route::post('store', 'BookController@store');
+    Route::post('lendBook', 'BookController@lendBook');
+});
