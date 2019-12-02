@@ -101,7 +101,7 @@ class BookController extends Controller
         $data_token = $token->decode($header_token);
         $user = User::where('email',$data_token->email)->first();
         $book = Book::where('id', $request->idBook)->first();
-        
+        var_dump($user->id);exit;
         $book->users()->attach($user->id);
         
         return 'Se ha prestado el libro';
